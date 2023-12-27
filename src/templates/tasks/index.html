@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="text-align: center;">
+    <h1>Tasks</h1>
+    <table style="display: flex; justify-content: center;">
+        <tr>
+            <th>Title</th>
+            <th>Priority</th>
+            <th>Text</th>
+        </tr>
+        {% for task in object_list %}
+        <tr>
+            <td>{{ task.title }}</td>
+            <td>{{ task.get_priority_display }}</td>
+            <td>{{ task.text|truncatechars:20 }}</td>
+        </tr>
+        {% endfor %}
+        </tr>
+    </table>
+</body>
+</html>

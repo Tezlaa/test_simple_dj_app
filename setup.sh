@@ -12,11 +12,6 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     python3 -m pip install --upgrade pip
     pip install -r requirements.txt
 
-    echo "Rename file. Migrate files..."
-    mv .env_copy .env
-    cd src/
-    python3 manage.py migrate
-
 elif [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" ]]; then
     # On Windows (Git Bash, Cygwin, or MSYS)
 
@@ -27,12 +22,6 @@ elif [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" ]]; then
     . venv/Scripts/activate
     python -m pip install --upgrade pip
     pip install -r requirements.txt
-
-    echo "Rename file. Migrate files..."
-    mv .env_copy .env
-    cd src/
-    python manage.py migrate
-  
 else
     echo "Unsupported operating system..."
 fi
